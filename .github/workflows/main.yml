@@ -26,7 +26,7 @@ jobs:
           thalysluuan/pipeline:v${{ github.run_number }}
           thalysluuan/pipeline:latest
   CD:
-    runs-on: ubuntu-lateste
+    runs-on: ubuntu-latest
     needs: [CI]
     steps:
       - name: checkout
