@@ -25,3 +25,24 @@ jobs:
         tags: | 
           thalysluuan/pipeline:v${{ github.run_number }}
           thalysluuan/pipeline:latest
+  CD:
+    runs-on: ubuntu-lateste
+    needs: [CI]
+    steps:
+      - name: checkout
+        uses: actions/checkout@v6.0.0 
+
+      - name: Obtendo código
+        uses: azure/k8s-set-context@v4
+        with:
+          method: kubeconfig
+          kubeconfig: ${{ secrets.K8S_CONFIG }}  
+          
+      - name: Executando o manifesto
+        uses: Azure/k8s-deploy@v5
+        with:
+          manifests: |
+            ./K8s/deployment.yaml
+          images: |
+            thalysluuan/pipeline:v${{ github.run_number }}
+      
