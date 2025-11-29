@@ -14,4 +14,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }} #${{ }} é uma expressão do github actions
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-        
+    - name: Build and push
+      uses: docker/build-push-action@v6
+      with:
+        context: ./src
+        file: ./src/Dockerfile
+        push: true
+        tags: | 
+          thalysluuan/pipeline:v${{ github.run_number }}
+          thalysluuan/pipeline:latest
