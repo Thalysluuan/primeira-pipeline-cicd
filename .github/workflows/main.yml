@@ -26,6 +26,6 @@ jobs:
         file: ./src/Dockerfile
         push: true
         tags: | 
-          thalysluuan/pipeline:$GITHUB_REF_NAME
+          thalysluuan/pipeline:"$GITHUB_REF_NAME"
           thalysluuan/pipeline:latest
        
