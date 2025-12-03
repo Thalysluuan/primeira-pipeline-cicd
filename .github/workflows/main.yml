@@ -1,4 +1,4 @@
-name: CID
+name: CI
 on: 
   push:
     branches: ["main"]
@@ -28,5 +28,4 @@ jobs:
         tags: | 
           thalysluuan/pipeline:v${{ github.run_number }}
           thalysluuan/pipeline:latest
-        labels: |
-          branch=${{ github.ref_name }}
+       
