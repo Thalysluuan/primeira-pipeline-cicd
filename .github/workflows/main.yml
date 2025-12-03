@@ -28,3 +28,5 @@ jobs:
         tags: | 
           thalysluuan/pipeline:v${{ github.run_number }}
           thalysluuan/pipeline:latest
+        labels: |
+          branch=${{ github.ref_name }}
