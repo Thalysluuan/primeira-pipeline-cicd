@@ -22,8 +22,8 @@ jobs:
     - name: Build and push
       uses: docker/build-push-action@v6
       with:
-        context: ${{ var.CONTEXTO_SRC }}
-        file: ${{ var.DOCKER_FILE }}
+        context: ${{ vars.CONTEXTO_SRC }}
+        file: ${{ vars.DOCKER_FILE }}
         push: true
         tags: | 
           thalysluuan/pipeline:${{ github.ref_name }}
